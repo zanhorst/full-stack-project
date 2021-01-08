@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>Grocery App</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -12,6 +12,36 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Browser Template</h1>
+      <h1>Grocery Tracker</h1>
+      <p id="message"></p>
+      <div class="unauthenticated">
+        <form id="sign-up">Sign Up
+          <label for="inputEmail">Email Address:</label>
+          <input type="email" placeholder="Enter email" name="credentials[email]">
+          <label for="inputPassword">Password:</label>
+          <input type="password" placeholder="Enter Password" name="credentials[password]">
+          <label for="inputPasswordConfirm">Confirm password:</label>
+          <input type="password" placeholder="Confirm password" name="credentials[password_confirmation]">
+          <button type="submit">Sign up</button>
+        </form>
+        <form id="sign-in">Sign in:
+          <label for="inputEmail">Email address</label>
+          <input type="email" placeholder="Enter Email" name="credentials[email]">
+          <label for="inputPassword">Password</label>
+          <input type="password" placeholder="Enter Password" name="credentials[password]">
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+      <div class="authenticated">
+        <form id="change-password">Change Password:
+        <input type="password" placeholder="Old Password" name="passwords[old]">
+        <input type="password" placeholder="New Password" name="passwords[new]">
+        <button type="submit">Submit</button>
+      </form>
+      <form id="sign-out">Sign out:
+        <button type="submit">Sign Out</button>
+      </form>
+        </form>
+      </div>
     </body>
 </html>
