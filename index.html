@@ -34,16 +34,29 @@
     </div>
     <div class="authenticated">
       <div id="nav">
+        <button id="show-change-password">Change Password</button>
+        <form id="sign-out">
+          <button type="submit">Sign Out</button>
+        </form>
+        <form id="index-lists">
+          <button type="click">All Lists</button>
+        </form>
+        <form id="new-list">
+          <button type="click">New List</button>
+        </form>
         <form id="change-password">Change Password:
           <input type="password" placeholder="Old Password" name="passwords[old]">
           <input type="password" placeholder="New Password" name="passwords[new]">
           <button type="submit">Submit</button>
         </form>
-        <form id="sign-out">Sign out:
-          <button type="submit">Sign Out</button>
-        </form>
-        <form id="new-list">
-          <button type="click">New List</button>
+      </div>
+      <div id="indexed-lists">
+        <p id="log-lists"></p>
+      </div>
+      <div id="list">
+        <form id="current-list">
+          <input type="text" placeholder="Enter Name" name="name">
+          <button type="submit">Submit</button>
         </form>
       </div>
     </div>

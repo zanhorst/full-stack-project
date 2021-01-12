@@ -14,6 +14,7 @@ const signInSuccess = function (response) {
   $('.unauthenticated').hide()
   $('.authenticated').show()
   $('form').trigger('reset')
+  $('#change-password').hide()
   console.log(store)
   store.user = response.user
 }
@@ -31,8 +32,9 @@ const signOutFailure = function (error) {
   $('#message').text('Sign out failed. Error is: ' + error.responseJSON.message)
 }
 const changePasswordSuccess = function (response) {
-  $('#message').text('Password changed sucessfully.')
+  $('#message').text('Password changed successfully.')
   $('form').trigger('reset')
+  $('#change-password').hide()
 }
 
 const changePasswordFailure = function (error) {

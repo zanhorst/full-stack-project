@@ -31,6 +31,10 @@ const onSignOut = function (event) {
     .then(ui.signOutSuccess)
     .catch(ui.signOutFailure)
 }
+// show change password event
+const onShowChangePassword = function () {
+  $('#change-password').show()
+}
 // change password event
 const onChangePassword = function (event) {
   event.preventDefault()
@@ -44,5 +48,6 @@ module.exports = {
   onSignUp,
   onSignIn,
   onSignOut,
+  onShowChangePassword,
   onChangePassword
 }
