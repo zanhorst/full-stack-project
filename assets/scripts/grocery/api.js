@@ -27,11 +27,7 @@ const createList = function () {
     headers: {
       Authorization: 'Bearer ' + store.user.token
     },
-    data: {
-      groceries: {
-        name: ''
-      }
-    }
+    data: {}
   })
 }
 const deleteList = function (formData) {

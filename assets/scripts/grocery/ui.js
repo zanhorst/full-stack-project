@@ -1,6 +1,5 @@
 'use strict'
 // const store = require('./../store.js')
-$('.authenticated').hide()
 // const onIndexListsSuccess = function (response) {
 
 // }
@@ -15,12 +14,12 @@ $('.authenticated').hide()
 //
 // }
 
-// const onCreateListSuccess = function (response) {
+const onCreateListSuccess = function (response) {
 
-// }
-// const onCreateListFailure = function (error) {
-//
-// }
+}
+const onCreateListFailure = function (error) {
+
+}
 
 // const onPatchListSuccess = function (response) {
 
@@ -36,6 +35,6 @@ module.exports = {
   // onShowListFailure,
   // onCreateListSuccess,
   // onCreateListFailure,
-  // onPatchListSuccess
+  // onPatchListSuccess,
   // onPatchListFailure
 }
