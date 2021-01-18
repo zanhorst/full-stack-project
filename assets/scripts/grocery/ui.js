@@ -15,10 +15,12 @@
 // }
 
 const onCreateListSuccess = function (response) {
-
+  console.log('Success.')
+  $('#message').text('New list was created.')
 }
 const onCreateListFailure = function (error) {
-
+  console.log('Failure.')
+  $('#message').text('List could not be created: ' + error.responseJSON.message)
 }
 
 // const onPatchListSuccess = function (response) {
@@ -33,8 +35,8 @@ module.exports = {
   // onIndexListsFailure,
   // onShowListSuccess,
   // onShowListFailure,
-  // onCreateListSuccess,
-  // onCreateListFailure,
+  onCreateListSuccess,
+  onCreateListFailure
   // onPatchListSuccess,
   // onPatchListFailure
 }

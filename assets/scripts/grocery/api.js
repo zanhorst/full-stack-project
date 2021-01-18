@@ -20,14 +20,14 @@ const showList = function (formData) {
     }
   })
 }
-const createList = function () {
+const createList = function (formData) {
   return $.ajax({
     url: config.apiUrl + '/groceries',
     method: 'POST',
     headers: {
       Authorization: 'Bearer ' + store.user.token
     },
-    data: {}
+    data: formData
   })
 }
 const deleteList = function (formData) {

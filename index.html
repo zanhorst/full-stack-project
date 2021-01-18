@@ -41,9 +41,6 @@
         <form id="index-lists">
           <button type="click">All Lists</button>
         </form>
-        <form id="new-list">
-          <button type="click">New List</button>
-        </form>
         <form id="change-password">Change Password:
           <input type="password" placeholder="Old Password" name="passwords[old]">
           <input type="password" placeholder="New Password" name="passwords[new]">
@@ -53,12 +50,10 @@
       <div id="indexed-lists">
         <p id="log-lists"></p>
       </div>
-      <div id="list">
-        <form id="current-list">
-          <input type="text" placeholder="Enter Name" name="name">
-          <button type="submit">Submit</button>
-        </form>
-      </div>
+      <form id="new-list">
+        <input type="text" placeholder="Enter Name" name="grocery[name]">
+        <button type="submit">Submit</button>
+      </form>
     </div>
   </body>
 </html>

@@ -19,14 +19,16 @@ const onShowList = function (event) {
     .then(ui.onShowListSuccess)
     .catch(ui.onShowListFailure)
 }
-//  event
+// create list event
 const onCreateList = function (event) {
   event.preventDefault()
-  api.createList()
+  const form = event.target
+  const data = getFormFields(form)
+  api.createList(data)
     .then(ui.onCreateListSuccess)
     .catch(ui.onCreateListFailure)
 }
-//  event
+// update list event
 const onPatchList = function (event) {
   event.preventDefault()
   const form = event.target
