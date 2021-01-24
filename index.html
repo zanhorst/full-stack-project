@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Grocery App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Do not add `link` tags-->
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+    <!-- Do not add `script` tags-->
+    <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+    <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+  </head>
+  <body>
+    <h1>Grocery Tracker</h1>
+    <p id="message"></p>
+    <div class="unauthenticated">
+      <form id="sign-up">Sign Up:
+        <label for="inputEmail">Email Address:</label>
+        <input type="email" placeholder="Enter email" name="credentials[email]">
+        <label for="inputPassword">Password:</label>
+        <input type="password" placeholder="Enter Password" name="credentials[password]">
+        <label for="inputPasswordConfirm">Confirm password:</label>
+        <input type="password" placeholder="Confirm password" name="credentials[password_confirmation]">
+        <button type="submit">Sign up</button>
+      </form>
+      <form id="sign-in">Sign in:
+        <label for="inputEmail">Email address</label>
+        <input type="email" placeholder="Enter Email" name="credentials[email]">
+        <label for="inputPassword">Password</label>
+        <input type="password" placeholder="Enter Password" name="credentials[password]">
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+    <div class="authenticated">
+      <nav>
+        <button id="show-change-password">Change Password</button>
+        <form id="sign-out">
+          <button type="submit">Sign Out</button>
+        </form>
+        <button id="index-lists" type="click">Index Lists</button>
+        <button id="show-new-list" type="click">Create New List</button>
+        <button id="show-show-list" type="click">Show One List</button>
+        <button id="show-update-list" type="click">Update List</button>
+        <button id="show-delete-list" type="click">Delete a List</button>
+      </nav>
+      <form id="change-password">Change Password:
+        <input type="password" placeholder="Old Password" name="passwords[old]">
+        <input type="password" placeholder="New Password" name="passwords[new]">
+        <button type="submit">Submit</button>
+        <button id="close-change-password" type="click">Cancel</button>
+      </form>
+      <div id="indexed-lists">
+        <p id="message2"></p>
+        <button id="index-close" type="click">Close</button>
+      </div>
+      <form id="new-list">Create A New List!
+        <input type="text" placeholder="Enter Name" name="grocery[name]">
+        <button type="submit">Submit</button>
+        <button id="new-close" type="click">Close</button>
+      </form>
+      <form id="show-list">Show A Single List!
+        <p id="message3"></p>
+        <input type="text" placeholder="Enter an ID" name="grocery[id]">
+        <button type="submit">Submit</button>
+        <button id="show-close" type="click">Close</button>
+      </form>
+      <form id="update-list">Update This List!
+        <input type="text" placeholder="Enter an ID" name="grocery[id]">
+        <input type="text" placeholder="Enter A New Name" name="grocery[name]">
+        <button type="submit">Submit</button>
+        <button id="update-close" type="click">Cancel</button>
+      </form>
+      <form id="delete-list">Delete A List!
+        <input type="text" placeholder="Enter An ID" name="grocery[id]">
+        <button type="submit">Submit</button>
+        <button id="delete-close">Close</button>
+      </form>
+    </div>
+  </body>
+</html>
