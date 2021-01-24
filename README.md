@@ -1,129 +1,50 @@
-[![General Assembly Logo](https://camo.githubusercontent.com/1a91b05b8f4d44b5bbfb83abac2b0996d8e26c92/687474703a2f2f692e696d6775722e636f6d2f6b6538555354712e706e67)](https://generalassemb.ly/education/web-development-immersive)
+[Deployed Site](https://zanhorst.github.io/full-stack-project/)
+[Deployed API](https://protected-taiga-47801.herokuapp.com/)
 
-# browser-template
+# =====Technologies Used=====
 
-A template for starting front-end projects. Webpack for `require` system, build
-pipeline, and development server. Boostrap and Handlebars.js included. No
-front-end frameworks included.
+* JavaScript
+* CSS
+* HTML
+* Mongoose
+* MongoDB
+* Node.js
+* Ajax
+* jQuery
+* Grunt
+* cURL
 
-## Installation
+# =====Planning=====
 
-1. [Download](../../archive/master.zip) this template.
-    - **Do Not Fork And Clone**
-    - Click the "Clone or Download" button and select "Download Zip".
-1. Move to the `sei/projects` directory, then unzip the template directory with
-    `unzip /Users/<user-name>/Downloads/browser-template-master.zip`.
-1. Rename the template directory from `browser-template-master` to
-    `<project-name>-client`.
-1. Empty [`README.md`](README.md) and fill with your own content.
-1. Replace all instances of `ga-wdi-boston.browser-template` with the name of
-    your project.
-    - You can search for all instances of text in Atom by pressing
-    `commant + shift + f` on Mac or `ctrl + shift + f` on WSL.
-1. Move into the new project and `git init`.
-1. Add all of the files in your project with the command `git add --all`.
-      - **Note: This is the only time you should run this command!**
-1. Commit all of your files with the command `git commit`.
-      - Your commit title should read `Initial commit`.
-1. Install dependencies with `npm install`.
-1. Create a new repository on [github.com](https://github.com),
-    _not GitHub Enterprise_.
-1. Name the new repository with the same name used on Step 3.
-1. Follow the instructions on your new repository's setup page. For details on
-   how to push to Github, refer to the section on Github entitled "…or push an existing
-   repository from the command line." Further documentation can be found [here](https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/).
+### WireFrame
+------------------
 
-## Structure
+[Wireframe](https://www.figma.com/file/VIl0FIYSJR3odfpwzFoYuf/FULL-STACK-PROJECT-FRONT-END-WIREFRAME?node-id=0%3A1)
 
-### Scripts
+### User Stories
+------------------
 
-Developers should store JavaScript files in [`assets/scripts`](assets/scripts).
-The "manifest" or entry-point is
-[`assets/scripts/app.js`](assets/scripts/app.js). In general, only
-application initialization goes in this file. It's normal for developers to
-start putting all code in this file, but encourage them to break out different
-responsibilities and use the `require` syntax put references where they're
-needed.
+As a user, I want complete control of the length of my lists, so that I can have different amounts of items in each list. (V.2)
+As a user, I want to be able to keep track of my lists over time, so that I can keep track of the different things that I buy.
+As a shopper, I want to be able to make a note of the prices of the different items I buy, to keep track of my finances.
+As a user, I want my lists to be private to me, to keep my shopping habits private.
 
-### Config
+# =====Development Story=====
 
-Developers should set `apiUrls.production` and `apiUrls.development` in
-[`assets/scripts/config.js`](assets/scripts/config.js).  With
-`apiUrls` set, developers may rely on `apiUrl` as the base for API
-URLs.
+This one was a struggle. Coding with a computer that can't cool itself down is difficult.
+A problem I ran into when writing the front-end of this application was getting my update function to send a readable object to the API. I started debugging by adding a lot of console.logs everywhere, and starting off by finding out how far the function gets before breaking. First bug: the page immediately reloads when clicking submit. Ok! I've seen this one before, i'm not using `event.preventDefault()` somewhere. But when i checked my events.js file, all of my `event.preventDefault()` were where they should be. So i then moved over to app.js, where i discovered that i was:
+* looking at the wrong event (click instead of submit)
+* looking at the wrong ID ("update-lists", instead of the correct "update-list")
+* sending the event to the wrong function (again, i wrote "onUpdateLists" instead of the correct "onUpdateList")
 
-### Styles
+With app.js sorted out now, it was time to debug again. I moved on to testing again. this time, i get a more informative bug: i'm making it to the end of the function, but i'm getting a 422 error. So onward i go to check on api.js, and make sure im giving it good data. Alas! The patch function needs an ID (to choose what to update) and a new name (to update to). All i'm doing is passing the `name:` key `formData`. This is the entire object of formData. I took a look at the my auth api, and realizing it didn't help a ton, i kept my focus on the front end. After about 30 minutes of staring at it, i realized i should probably be giving the name key more specific instructions, so i changed `name: formData` to `name: formData.grocery.name`, and the function worked from then on. In total, fixing this took probably 2 hours.
 
-Developers should store styles in [`assets/styles`](assets/styles) and load them
-from [`assets/styles/index.scss`](assets/styles/index.scss). Bootstrap version 3 is
-included in this template.
+# =====Unsolved Issues=====
 
-### Forms and Using `getFormFields`
+THIS IS NOT A COMPLETE APPLICATION!!
 
-Developers should use [getFormFields](get-form-fields.md) to retrieve form data
-to send to an API.
+This is only the MVP of the application for V1. It does not include any CSS, or 2 of the extra relationships i would like to include. Unfortunately, my computer being broken and needing gloves full of ice water placed on it every 15 minutes really slows you down. I will continue working on making this application more feasable, however, that may not be for a little while. Thank you taking the time to check out my work!
 
-### Deployment
-
-To deploy a browser-template based SPA, run `grunt deploy`.
-
-## Adding Images
-
-To add images to your project, you must store them in the `public` directory.
-To use the image in HTML or CSS, write the path to the image like this:
-
-```html
-<img src="public/cat.jpg">
-```
-or
-```css
-#my-cool-div {
-  background-image: url('public/cat.jpg')
-}
-```
-
-Note that there's no `./` or `/` in front of `public/filename.jpg`.
-
-## Adding Fonts
-
-To add custom fonts to your app, you can either use a CDN like Google Fonts, or
-you can download the fonts and save them in the `public` directory. If you use
-the former method, follow the directions on the website providing the fonts.
-
-For local fonts, put the files in `public`, and then import and use them in a
-`.scss` file like this:
-
-```scss
-@font-face {
-  font-family: 'Nature Beauty';
-  src: url('public/Nature-Beauty.ttf') format('truetype');
-}
-
-.element-with-custom-font {
-  font-family: 'Nature Beauty';
-}
-```
-
-## Tasks
-
-Developers should run these often!
-
-- `grunt nag` or just `grunt`: runs code quality analysis tools on your code
-    and complains
-- `grunt make-standard`: reformats all your code in the JavaScript Standard Style
-- `grunt <server|serve|s>`: generates bundles, watches, and livereloads
-- `grunt build`: place bundled styles and scripts where `index.html` can find
-    them
-- `grunt deploy`: builds and deploys master branch
-
-
-## Additional Resources
-
-- [Modern Javascript Explained for Dinosaurs](https://medium.com/@peterxjang/modern-javascript-explained-for-dinosaurs-f695e9747b70)
-- [Making Sense of Front End Build Tools](https://medium.freecodecamp.org/making-sense-of-front-end-build-tools-3a1b3a87043b)
-
-## [License](LICENSE)
-
-1. All content is licensed under a CC­BY­NC­SA 4.0 license.
-1. All software code is licensed under GNU GPLv3. For commercial use or
-    alternative licensing, please contact legal@ga.co.
+v2 will include: individual items to be included when you a show or index your list(s).
+v2 will include some css formatting.
+v3 will include a css overhaul and possibly a new, currently unmentioned relationship. Shhh, its secret :)
