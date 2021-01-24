@@ -13,7 +13,7 @@ const indexLists = function () {
 }
 const showList = function (formData) {
   return $.ajax({
-    url: config.apiUrl + '/groceries',
+    url: config.apiUrl + '/groceries/' + formData.grocery.id,
     method: 'GET',
     headers: {
       Authorization: 'Bearer ' + store.user.token
@@ -30,26 +30,26 @@ const createList = function (formData) {
     data: formData
   })
 }
-const deleteList = function (formData) {
-  return $.ajax({
-    url: config.apiUrl + '/groceries',
-    method: 'DELETE',
-    headers: {
-      Authorization: 'Bearer ' + store.user.token
-    }
-  })
-}
 const patchList = function (formData) {
   return $.ajax({
-    url: config.apiUrl + '/groceries',
-    method: 'patchList',
+    url: config.apiUrl + '/groceries/' + formData.grocery.id,
+    method: 'PATCH',
     headers: {
       Authorization: 'Bearer ' + store.user.token
     },
     data: {
-      groceries: {
-        name: formData
+      grocery: {
+        name: formData.grocery.name
       }
+    }
+  })
+}
+const deleteList = function (formData) {
+  return $.ajax({
+    url: config.apiUrl + '/groceries/' + formData.grocery.id,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
     }
   })
 }
@@ -57,6 +57,6 @@ module.exports = {
   indexLists,
   showList,
   createList,
-  deleteList,
-  patchList
+  patchList,
+  deleteList
 }

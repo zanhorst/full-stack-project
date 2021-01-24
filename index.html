@@ -33,26 +33,48 @@
       </form>
     </div>
     <div class="authenticated">
-      <div id="nav">
+      <nav>
         <button id="show-change-password">Change Password</button>
         <form id="sign-out">
           <button type="submit">Sign Out</button>
         </form>
-        <form id="index-lists">
-          <button type="click">All Lists</button>
-        </form>
-        <form id="change-password">Change Password:
-          <input type="password" placeholder="Old Password" name="passwords[old]">
-          <input type="password" placeholder="New Password" name="passwords[new]">
-          <button type="submit">Submit</button>
-        </form>
-      </div>
+        <button id="index-lists" type="click">Index Lists</button>
+        <button id="show-new-list" type="click">Create New List</button>
+        <button id="show-show-list" type="click">Show One List</button>
+        <button id="show-update-list" type="click">Update List</button>
+        <button id="show-delete-list" type="click">Delete a List</button>
+      </nav>
+      <form id="change-password">Change Password:
+        <input type="password" placeholder="Old Password" name="passwords[old]">
+        <input type="password" placeholder="New Password" name="passwords[new]">
+        <button type="submit">Submit</button>
+        <button id="close-change-password" type="click">Cancel</button>
+      </form>
       <div id="indexed-lists">
-        <p id="log-lists"></p>
+        <p id="message2"></p>
+        <button id="index-close" type="click">Close</button>
       </div>
-      <form id="new-list">
+      <form id="new-list">Create A New List!
         <input type="text" placeholder="Enter Name" name="grocery[name]">
         <button type="submit">Submit</button>
+        <button id="new-close" type="click">Close</button>
+      </form>
+      <form id="show-list">Show A Single List!
+        <p id="message3"></p>
+        <input type="text" placeholder="Enter an ID" name="grocery[id]">
+        <button type="submit">Submit</button>
+        <button id="show-close" type="click">Close</button>
+      </form>
+      <form id="update-list">Update This List!
+        <input type="text" placeholder="Enter an ID" name="grocery[id]">
+        <input type="text" placeholder="Enter A New Name" name="grocery[name]">
+        <button type="submit">Submit</button>
+        <button id="update-close" type="click">Cancel</button>
+      </form>
+      <form id="delete-list">Delete A List!
+        <input type="text" placeholder="Enter An ID" name="grocery[id]">
+        <button type="submit">Submit</button>
+        <button id="delete-close">Close</button>
       </form>
     </div>
   </body>

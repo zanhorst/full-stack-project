@@ -15,7 +15,6 @@ const signInSuccess = function (response) {
   $('.authenticated').show()
   $('form').trigger('reset')
   $('#change-password').hide()
-  console.log(store)
   store.user = response.user
 }
 
@@ -38,7 +37,6 @@ const changePasswordSuccess = function (response) {
 }
 
 const changePasswordFailure = function (error) {
-  console.log(error)
   $('#message').text('Password could not be changed. Error is: ' + error.responseJSON.message)
 }
 module.exports = {
